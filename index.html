@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Midori 緑 — Your Matcha Assistant</title>
+<meta name="description" content="Midori is a rule-based assistant for everything matcha — preparation, benefits, storage and beginner tips." />
+
+<!-- Favicon: matcha bowl + whisk mark -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23254117'/%3E%3Cpath d='M18 30c0 10 6 18 14 18s14-8 14-18' stroke='%23DCE8CF' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M32 12v14M27 16l5-4 5 4' stroke='%2397A273' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Markazi+Text:wght@500;600;700&family=Cairo:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============ AMBIENT BACKGROUND ============ -->
+<div class="ambient" aria-hidden="true">
+  <div class="grain"></div>
+  <svg class="leaf leaf--1" viewBox="0 0 100 100"><path d="M50 5C25 20 10 45 15 75c25 5 55-5 65-30C88 25 70 10 50 5Z"/></svg>
+  <svg class="leaf leaf--2" viewBox="0 0 100 100"><path d="M50 5C25 20 10 45 15 75c25 5 55-5 65-30C88 25 70 10 50 5Z"/></svg>
+  <svg class="leaf leaf--3" viewBox="0 0 100 100"><path d="M50 5C25 20 10 45 15 75c25 5 55-5 65-30C88 25 70 10 50 5Z"/></svg>
+  <svg class="leaf leaf--4" viewBox="0 0 100 100"><path d="M50 5C25 20 10 45 15 75c25 5 55-5 65-30C88 25 70 10 50 5Z"/></svg>
+</div>
+
+<!-- ============ NAVIGATION ============ -->
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#top" aria-label="Midori home">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="31" class="brand-mark__ring"/>
+        <path d="M18 30c0 10 6 18 14 18s14-8 14-18" class="brand-mark__bowl"/>
+        <path d="M32 12v14M27 16l5-4 5 4" class="brand-mark__whisk"/>
+      </svg>
+      <span class="nav__brand-text">
+        <span class="nav__brand-name">Midori</span>
+        <span class="nav__brand-jp">緑</span>
+      </span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#top" class="nav__link" data-i18n="nav.home">Home</a>
+      <a href="#chat" class="nav__link nav__link--cta" data-i18n="nav.chat">Talk to Midori</a>
+    </nav>
+
+    <div class="lang-switch" role="group" aria-label="Language switcher">
+      <button class="lang-switch__btn is-active" data-lang="en" aria-pressed="true">EN</button>
+      <button class="lang-switch__btn" data-lang="ar" aria-pressed="false">AR</button>
+      <button class="lang-switch__btn" data-lang="ja" aria-pressed="false">日本</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<main>
+<section id="top" class="hero">
+  <div class="hero__inner">
+    <div class="hero__copy">
+      <p class="hero__eyebrow" data-i18n="hero.eyebrow">A quiet corner of the tea house</p>
+      <h1 class="hero__title">
+        <span class="hero__title-jp" data-i18n="hero.titleJp">緑</span>
+        <span class="hero__title-en" data-i18n="hero.title">Midori</span>
+      </h1>
+      <p class="hero__tagline" data-i18n="hero.tagline">Your Matcha Assistant</p>
+
+      <p class="hero__intro" data-i18n="hero.intro">
+        Welcome. I'm Midori. I can answer common questions about matcha — its preparation, health benefits, storage, and beginner tips.
+      </p>
+      <p class="hero__sub" data-i18n="hero.sub">Choose one of the quick questions below, or type your own.</p>
+
+      <a href="#chat" class="btn btn--primary hero__cta" data-i18n="hero.cta">Begin the conversation</a>
+    </div>
+
+    <div class="hero__art" aria-hidden="true">
+      <div class="hero__art-glow"></div>
+      <svg class="hero__bowl" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="180" cy="245" rx="118" ry="26" class="bowl-shadow" />
+        <path d="M65 150 C65 230 115 275 180 275 C245 275 295 230 295 150 Z" class="bowl-body" />
+        <path d="M65 150 C65 230 115 275 180 275 C245 275 295 230 295 150" class="bowl-rim" />
+        <ellipse cx="180" cy="150" rx="115" ry="22" class="tea-surface" />
+        <ellipse cx="180" cy="150" rx="90" ry="16" class="tea-foam" />
+        <g class="whisk">
+          <path d="M215 60 L232 145" class="whisk-handle" />
+          <path d="M205 78 C200 100 200 120 208 140 M215 76 C213 100 214 122 220 142 M225 78 C230 100 232 122 232 142 M235 82 C242 102 246 122 244 140" class="whisk-tines" />
+        </g>
+        <g class="floating-leaves">
+          <path d="M300 90c-10 6-16 16-14 28 12 2 24-2 30-12 4-8 0-18-16-16Z" class="mini-leaf mini-leaf--a"/>
+          <path d="M55 95c10 4 18 13 17 25-12 4-24 1-31-8-6-8-3-19 14-17Z" class="mini-leaf mini-leaf--b"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <a href="#chat" class="hero__scroll" data-i18n="hero.scroll" aria-label="Scroll to chat">
+    <span class="hero__scroll-line"></span>
+  </a>
+</section>
+
+<!-- ============ CHAT SECTION ============ -->
+<section id="chat" class="chat-section">
+  <div class="chat-card">
+    <div class="chat-card__header">
+      <svg class="chat-card__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="31" class="brand-mark__ring"/>
+        <path d="M18 30c0 10 6 18 14 18s14-8 14-18" class="brand-mark__bowl"/>
+        <path d="M32 12v14M27 16l5-4 5 4" class="brand-mark__whisk"/>
+      </svg>
+      <div class="chat-card__id">
+        <p class="chat-card__name" data-i18n="chat.headerName">Midori</p>
+        <p class="chat-card__status">
+          <span class="status-dot"></span>
+          <span data-i18n="chat.headerStatus">Here to help, always calm</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="chat-card__body" id="chatBody" aria-live="polite">
+      <!-- messages injected here -->
+    </div>
+
+    <div class="chat-card__quick">
+      <p class="chat-card__quick-title" data-i18n="chat.quickTitle">Or start with one of these</p>
+      <div class="chips" id="quickChips"></div>
+    </div>
+
+    <form class="chat-card__input" id="chatForm">
+      <input
+        type="text"
+        id="chatInput"
+        class="chat-card__field"
+        data-i18n-placeholder="chat.placeholder"
+        placeholder="Ask Midori about matcha…"
+        autocomplete="off"
+      />
+      <button type="submit" class="chat-card__send" aria-label="Send">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 12l17-8-6 8 6 8-17-8Z" fill="currentColor"/></svg>
+      </button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <p data-i18n="footer.note">Midori is a rule-based assistant. No AI, no servers — just careful answers about matcha.</p>
+</footer>
+
+<script src="translations.js"></script>
+<script src="matchaData.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
